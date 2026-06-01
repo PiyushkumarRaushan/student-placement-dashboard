@@ -2,9 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# -------------------------
-# Load Dataset
-# -------------------------
 
 base_dir = os.path.dirname(os.path.dirname(__file__))
 
@@ -12,9 +9,6 @@ csv_path = os.path.join(base_dir, "students.csv")
 
 df = pd.read_csv(csv_path)
 
-# -------------------------
-# Create Charts Folder
-# -------------------------
 
 charts_dir = os.path.join(
     base_dir,
@@ -27,9 +21,7 @@ os.makedirs(
     exist_ok=True
 )
 
-# -------------------------
-# Basic Analysis
-# -------------------------
+
 
 print("\n===== DATASET =====")
 print(df.head())
@@ -40,10 +32,6 @@ print(df["CGPA"].mean())
 print("\n===== PLACEMENT COUNT =====")
 print(df["Placed"].value_counts())
 
-# -------------------------
-# Chart 1
-# CGPA Distribution
-# -------------------------
 
 plt.figure(figsize=(8,5))
 
@@ -67,11 +55,6 @@ plt.savefig(
 
 plt.close()
 
-# -------------------------
-# Chart 2
-# Placement Distribution
-# -------------------------
-
 placement_counts = df["Placed"].value_counts()
 
 plt.figure(figsize=(6,6))
@@ -93,10 +76,9 @@ plt.savefig(
 
 plt.close()
 
-# -------------------------
-# Chart 3
-# Internships vs Placement
-# -------------------------
+
+
+
 
 grouped = df.groupby(
     "Placed"

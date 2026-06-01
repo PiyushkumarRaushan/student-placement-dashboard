@@ -15,13 +15,13 @@ def home():
     )
     total_students = cursor.fetchone()[0]
 
-    # Average CGPA
+
     cursor.execute(
         "SELECT AVG(CGPA) FROM students"
     )
     avg_cgpa = round(cursor.fetchone()[0], 2)
 
-    # Placed Students
+
     cursor.execute(
         """
         SELECT COUNT(*)
